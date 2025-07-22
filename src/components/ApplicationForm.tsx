@@ -59,7 +59,9 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
     "Translation Services",
     "Verification Services",
     "Evaluation Services",
-    "ID Upload"
+    "ID Upload",
+    "Payment Method",
+    "Processing Status"
   ];
 
   const renderStep = () => {
@@ -549,11 +551,20 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
             </div>
 
             <div className="space-y-4">
+              <div className="mb-4">
+                <p className="text-sm text-red-600 font-medium">
+                  You <strong>must upload at least one document</strong> to continue! Please upload a scanned copy of an ID type listed below.
+                </p>
+                <p className="text-sm text-foreground mt-2">
+                  All applicants must provide <strong>ONE</strong> of the following government issued forms of identification:
+                </p>
+              </div>
+
               <Label htmlFor="idUpload">Files *</Label>
               <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
                 <div className="space-y-2">
                   <div className="text-muted-foreground">
-                    בחירת קבצים | לא נבחר קובץ
+                    לא נבחר קובץ | בחירת קבצים
                   </div>
                   <Button variant="outline" size="sm">
                     Choose Files
@@ -566,6 +577,103 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
                   Add another response
                 </Button>
               </div>
+            </div>
+          </div>
+        );
+
+      case 7:
+        return (
+          <div className="space-y-6">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-semibold mb-4">Choose Payment Method</h3>
+              <p className="text-muted-foreground">Select your preferred payment method to proceed</p>
+            </div>
+
+            <div className="space-y-4 max-w-md mx-auto">
+              <div className="border rounded-lg p-4 hover:border-primary cursor-pointer transition-colors">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-8 bg-gradient-to-r from-blue-600 to-blue-800 rounded flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">VISA</span>
+                  </div>
+                  <div>
+                    <p className="font-medium">Credit/Debit Card</p>
+                    <p className="text-sm text-muted-foreground">Visa, Mastercard, American Express</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border rounded-lg p-4 hover:border-primary cursor-pointer transition-colors">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-8 bg-blue-500 rounded flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">PayPal</span>
+                  </div>
+                  <div>
+                    <p className="font-medium">PayPal</p>
+                    <p className="text-sm text-muted-foreground">Pay with your PayPal account</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-8">
+              <div className="bg-muted/50 rounded-lg p-4">
+                <p className="text-lg font-semibold">Total: $199.00</p>
+                <p className="text-sm text-muted-foreground mt-1">Document evaluation and processing fee</p>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 8:
+        return (
+          <div className="space-y-6">
+            <div className="text-center mb-8">
+              <h3 className="text-xl font-semibold mb-2">Document Processing Status</h3>
+              <p className="text-muted-foreground">Your document is being processed automatically</p>
+            </div>
+
+            <div className="space-y-6 max-w-2xl mx-auto">
+              {[
+                { step: 1, title: "יצוא נתונים", description: "Extracting data from uploaded documents", status: "completed" },
+                { step: 2, title: "עיבוד", description: "Processing and validating information", status: "completed" },
+                { step: 3, title: "תרגום", description: "Translating documents to required language", status: "active" },
+                { step: 4, title: "הערכה ומחקר", description: "Academic evaluation and research", status: "pending" },
+                { step: 5, title: "ייצוא מסמך", description: "Generating final evaluation report", status: "pending" }
+              ].map((item) => (
+                <div key={item.step} className="flex items-start space-x-4 p-4 border rounded-lg">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    item.status === 'completed' 
+                      ? 'bg-green-100 text-green-600' 
+                      : item.status === 'active'
+                      ? 'bg-blue-100 text-blue-600'
+                      : 'bg-gray-100 text-gray-400'
+                  }`}>
+                    {item.status === 'completed' ? '✓' : 
+                     item.status === 'active' ? '⟳' : 
+                     item.step}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-2">
+                      <h4 className="font-medium">{item.step}. {item.title}</h4>
+                      {item.status === 'active' && (
+                        <span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">
+                          In Progress
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-8 p-4 bg-blue-50 rounded-lg">
+              <p className="text-sm text-blue-600">
+                <strong>Estimated completion time:</strong> 3-5 business days
+              </p>
+              <p className="text-xs text-blue-500 mt-1">
+                You will receive an email notification once the evaluation is complete
+              </p>
             </div>
           </div>
         );
