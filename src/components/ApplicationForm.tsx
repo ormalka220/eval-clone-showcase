@@ -578,57 +578,48 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero py-12">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-primary-foreground mb-4">
-            The Evaluation Company Online Application
-          </h1>
+    <div className="p-8">
+      {/* Progress bar */}
+      <div className="mb-6">
+        <div className="flex items-center justify-between mb-2">
+          <h2 className="text-xl font-semibold text-foreground">
+            {stepTitles[currentStep]}
+          </h2>
+          <div className="text-sm text-muted-foreground">
+            Step {currentStep + 1} of {stepTitles.length}
+          </div>
         </div>
-
-        <div className="max-w-4xl mx-auto">
-          <Card className="shadow-hero">
-            <CardHeader className="pb-4">
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-xl font-semibold">
-                  {stepTitles[currentStep]}
-                </CardTitle>
-                <div className="text-sm text-muted-foreground">
-                  Step {currentStep + 1} of {stepTitles.length}
-                </div>
-              </div>
-              
-              {/* Progress bar */}
-              <div className="w-full bg-muted rounded-full h-2 mt-4">
-                <div 
-                  className="bg-success h-2 rounded-full transition-smooth"
-                  style={{ width: `${((currentStep + 1) / stepTitles.length) * 100}%` }}
-                ></div>
-              </div>
-            </CardHeader>
-            
-            <CardContent className="pt-0">
-              {renderStep()}
-              
-              <div className="flex justify-between pt-8 mt-8 border-t border-border">
-                <Button 
-                  variant="outline" 
-                  onClick={onPrevStep}
-                  disabled={currentStep === 0}
-                >
-                  Previous Page
-                </Button>
-                <Button 
-                  className="btn-success"
-                  onClick={onNextStep}
-                  disabled={currentStep >= stepTitles.length - 1}
-                >
-                  Next Page
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+        
+        <div className="w-full bg-gray-200 rounded-full h-1">
+          <div 
+            className="bg-success h-1 rounded-full transition-smooth"
+            style={{ width: `${((currentStep + 1) / stepTitles.length) * 100}%` }}
+          ></div>
         </div>
+      </div>
+      
+      {/* Form content */}
+      <div className="mb-8">
+        {renderStep()}
+      </div>
+      
+      {/* Navigation buttons */}
+      <div className="flex justify-between pt-6 border-t border-gray-200">
+        <Button 
+          variant="outline" 
+          onClick={onPrevStep}
+          disabled={currentStep === 0}
+          className="px-6 py-2"
+        >
+          Previous Page
+        </Button>
+        <Button 
+          onClick={onNextStep}
+          disabled={currentStep >= stepTitles.length - 1}
+          className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2"
+        >
+          Next Page
+        </Button>
       </div>
     </div>
   );
