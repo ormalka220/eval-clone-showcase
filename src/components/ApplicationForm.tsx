@@ -313,22 +313,22 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
             </div>
 
             <RadioGroup value={formData.translationOption} className="space-y-4">
-              <div className="bg-muted/50 p-4 rounded-lg">
+              <div className="space-y-3">
                 <div className="flex items-start space-x-3">
                   <RadioGroupItem value="english" id="english" />
-                  <Label htmlFor="english" className="text-sm">
+                  <Label htmlFor="english" className="text-sm text-foreground">
                     My documents were originally issued in English.
                   </Label>
                 </div>
-                <div className="flex items-start space-x-3 mt-2">
+                <div className="flex items-start space-x-3">
                   <RadioGroupItem value="certified" id="certified" />
-                  <Label htmlFor="certified" className="text-sm">
+                  <Label htmlFor="certified" className="text-sm text-foreground">
                     I will provide a certified translation of my documents with copies of the original documents.
                   </Label>
                 </div>
-                <div className="flex items-start space-x-3 mt-2">
+                <div className="flex items-start space-x-3">
                   <RadioGroupItem value="quote" id="quote" />
-                  <Label htmlFor="quote" className="text-sm">
+                  <Label htmlFor="quote" className="text-sm text-foreground">
                     I need a quote for translation service.
                   </Label>
                 </div>
@@ -388,36 +388,34 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
             </div>
 
             <RadioGroup className="space-y-4 mt-6">
-              <div className="bg-muted/50 p-4 rounded-lg">
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3">
-                    <RadioGroupItem value="direct" id="direct" />
-                    <Label htmlFor="direct" className="text-sm">
-                      I will arrange for my previous institution(s) to send my official academic documents directly to SpanTran.
-                    </Label>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <RadioGroupItem value="verification" id="verification" />
-                    <Label htmlFor="verification" className="text-sm">
-                      Please perform Verification Services for an additional cost.
-                    </Label>
-                  </div>
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3">
+                  <RadioGroupItem value="direct" id="direct" />
+                  <Label htmlFor="direct" className="text-sm text-foreground">
+                    I will arrange for my previous institution(s) to send my official academic documents directly to SpanTran.
+                  </Label>
                 </div>
-                
-                <div className="mt-4">
-                  <Select>
-                    <SelectTrigger className="form-select">
-                      <SelectValue placeholder="Please select..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="standard">Standard Verification</SelectItem>
-                      <SelectItem value="expedited">Expedited Verification</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Processing times for verification services may vary depending on your country and institution of study.
-                  </p>
+                <div className="flex items-start space-x-3">
+                  <RadioGroupItem value="verification" id="verification" />
+                  <Label htmlFor="verification" className="text-sm text-foreground">
+                    Please perform Verification Services for an additional cost.
+                  </Label>
                 </div>
+              </div>
+              
+              <div className="mt-4">
+                <Select>
+                  <SelectTrigger className="form-select">
+                    <SelectValue placeholder="Please select..." />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white border border-gray-200 z-50">
+                    <SelectItem value="standard">Standard Verification</SelectItem>
+                    <SelectItem value="expedited">Expedited Verification</SelectItem>
+                  </SelectContent>
+                </Select>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Processing times for verification services may vary depending on your country and institution of study.
+                </p>
               </div>
             </RadioGroup>
           </div>
