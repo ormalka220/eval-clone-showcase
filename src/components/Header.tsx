@@ -34,20 +34,19 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+          <Link to="/" className="flex items-center space-x-3 flex-shrink-0">
+            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
               <div className="w-6 h-6 border-2 border-primary-foreground rounded-full relative">
-                <div className="absolute -top-1 -left-1 w-2 h-2 bg-primary-foreground rounded-full"></div>
-                <div className="absolute -top-1 -right-1 w-2 h-2 bg-primary-foreground rounded-full"></div>
-                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-primary-foreground rounded-full"></div>
-                <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-primary-foreground rounded-full"></div>
+                <div className="absolute -top-0.5 -left-0.5 w-1.5 h-1.5 bg-primary-foreground rounded-full"></div>
+                <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-primary-foreground rounded-full"></div>
+                <div className="absolute -bottom-0.5 -left-0.5 w-1.5 h-1.5 bg-primary-foreground rounded-full"></div>
+                <div className="absolute -bottom-0.5 -right-0.5 w-1.5 h-1.5 bg-primary-foreground rounded-full"></div>
               </div>
             </div>
-            <div className="text-lg font-bold">
-              <span className="text-primary">TEC</span>
-              <div className="text-sm text-muted-foreground leading-tight">
-                The<br />
-                Evaluation<br />
+            <div className="flex-shrink-0">
+              <div className="text-lg font-bold text-primary">TEC</div>
+              <div className="text-xs text-muted-foreground leading-tight -mt-1">
+                The Evaluation<br />
                 Company
               </div>
             </div>
