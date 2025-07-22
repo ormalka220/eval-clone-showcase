@@ -2,41 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* TEC Design System - The Evaluation Company */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 222 84% 5%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 84% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 84% 5%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* TEC Brand Colors */
+    --primary: 242 53% 23%; /* Deep blue #242f5c */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 242 53% 23%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --success: 142 71% 45%; /* Green for CTA buttons #22c55e */
+    --success-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 213 100% 85%; /* Light blue accent */
+    --accent-foreground: 242 53% 23%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 242 53% 23%;
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
+
+    /* TEC Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(242 53% 23%), hsl(242 53% 30%));
+    --gradient-hero-light: linear-gradient(135deg, hsl(213 100% 85%), hsl(242 53% 23%));
+    
+    /* TEC Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(242 53% 23% / 0.1);
+    --shadow-hero: 0 10px 25px -3px hsl(242 53% 23% / 0.1);
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +114,57 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: 'cv11', 'cv03', 'cv04', 'cv09';
+  }
+
+  /* Custom components */
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-hero {
+    box-shadow: var(--shadow-hero);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
+
+@layer components {
+  /* TEC Button Variants */
+  .btn-success {
+    @apply bg-success text-success-foreground hover:bg-success/90 transition-smooth;
+  }
+  
+  .btn-hero {
+    @apply bg-success text-success-foreground hover:bg-success/90 px-8 py-3 rounded-lg font-semibold transition-smooth shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-outline-success {
+    @apply border border-success text-success hover:bg-success hover:text-success-foreground transition-smooth;
+  }
+
+  /* Form styling */
+  .form-input {
+    @apply w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-smooth;
+  }
+
+  .form-select {
+    @apply w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-smooth bg-background;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply text-foreground hover:text-primary transition-smooth font-medium;
+  }
+
+  .nav-dropdown {
+    @apply absolute top-full left-0 mt-2 w-64 bg-popover border border-border rounded-lg shadow-lg py-2 z-50;
   }
 }
