@@ -128,8 +128,8 @@ const Header = () => {
             <Button asChild className="btn-primary">
               <Link to="/application">Apply Online</Link>
             </Button>
-            <Button variant="outline" className="btn-outline-success">Request Demo</Button>
-            <Button variant="outline" className="btn-outline-success">Request Copies</Button>
+            <Button className="btn-outline-success">Request Demo</Button>
+            <Button className="btn-outline-success">Request Copies</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -158,8 +158,8 @@ const Header = () => {
                   <Button asChild className="btn-primary">
                     <Link to="/application">Apply Online</Link>
                   </Button>
-                  <Button variant="outline" className="btn-outline-success">Request Demo</Button>
-                  <Button variant="outline" className="btn-outline-success">Request Copies</Button>
+                  <Button className="btn-outline-success">Request Demo</Button>
+                  <Button className="btn-outline-success">Request Copies</Button>
                 </div>
               </div>
             </nav>
