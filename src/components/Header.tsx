@@ -35,21 +35,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 flex-shrink-0">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-              <div className="w-6 h-6 border-2 border-primary-foreground rounded-full relative">
-                <div className="absolute -top-0.5 -left-0.5 w-1.5 h-1.5 bg-primary-foreground rounded-full"></div>
-                <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-primary-foreground rounded-full"></div>
-                <div className="absolute -bottom-0.5 -left-0.5 w-1.5 h-1.5 bg-primary-foreground rounded-full"></div>
-                <div className="absolute -bottom-0.5 -right-0.5 w-1.5 h-1.5 bg-primary-foreground rounded-full"></div>
-              </div>
-            </div>
-            <div className="flex-shrink-0">
-              <div className="text-lg font-bold text-primary">TEC</div>
-              <div className="text-xs text-muted-foreground leading-tight -mt-1">
-                The Evaluation<br />
-                Company
-              </div>
-            </div>
+            <img 
+              src="/lovable-uploads/3a07cd3c-5a47-42c6-b31d-420f744667c2.png" 
+              alt="TEC - The Evaluation Company" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
