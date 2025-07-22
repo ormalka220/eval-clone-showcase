@@ -436,7 +436,7 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
                 Do you know which evaluation you need or do you need help?
               </p>
 
-              <div className="bg-muted/50 p-4 rounded-lg">
+              <RadioGroup className="space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-start space-x-3">
                     <RadioGroupItem value="know" id="know" />
@@ -447,7 +447,7 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
                     <Label htmlFor="help" className="text-sm">I need help choosing an evaluation service</Label>
                   </div>
                 </div>
-              </div>
+              </RadioGroup>
 
               <div>
                 <Label htmlFor="evaluationService">Evaluation Service: *</Label>
