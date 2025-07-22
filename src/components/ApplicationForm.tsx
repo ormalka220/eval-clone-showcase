@@ -564,7 +564,7 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
               <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
                 <div className="space-y-2">
                   <div className="text-muted-foreground">
-                    לא נבחר קובץ | בחירת קבצים
+                    No file selected | Choose Files
                   </div>
                   <Button variant="outline" size="sm">
                     Choose Files
@@ -634,11 +634,11 @@ const ApplicationForm = ({ currentStep, onNextStep, onPrevStep }: ApplicationFor
 
             <div className="space-y-6 max-w-2xl mx-auto">
               {[
-                { step: 1, title: "יצוא נתונים", description: "Extracting data from uploaded documents", status: "completed" },
-                { step: 2, title: "עיבוד", description: "Processing and validating information", status: "completed" },
-                { step: 3, title: "תרגום", description: "Translating documents to required language", status: "active" },
-                { step: 4, title: "הערכה ומחקר", description: "Academic evaluation and research", status: "pending" },
-                { step: 5, title: "ייצוא מסמך", description: "Generating final evaluation report", status: "pending" }
+                { step: 1, title: "Data Export", description: "Extracting data from uploaded documents", status: "completed" },
+                { step: 2, title: "Processing", description: "Processing and validating information", status: "completed" },
+                { step: 3, title: "Translation", description: "Translating documents to required language", status: "active" },
+                { step: 4, title: "Evaluation & Research", description: "Academic evaluation and research", status: "pending" },
+                { step: 5, title: "Document Export", description: "Generating final evaluation report", status: "pending" }
               ].map((item) => (
                 <div key={item.step} className="flex items-start space-x-4 p-4 border rounded-lg">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
