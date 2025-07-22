@@ -20,9 +20,9 @@ const HeroSection = () => {
               </p>
             </div>
             
-            <Button asChild className="btn-hero text-lg px-10 py-4 h-auto">
-              <Link to="/application">Apply Now</Link>
-            </Button>
+            <Link to="/application" className="btn-hero text-lg px-10 py-4 h-auto inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+              Apply Now
+            </Link>
             
             {/* NACES Badge */}
             <div className="flex items-center space-x-4 pt-8">
