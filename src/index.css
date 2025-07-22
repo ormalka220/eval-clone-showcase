@@ -138,6 +138,10 @@
 
 @layer components {
   /* TEC Button Variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth rounded-lg px-6 py-2.5 font-medium;
+  }
+
   .btn-success {
     @apply bg-success text-success-foreground hover:bg-success/90 transition-smooth;
   }
@@ -147,7 +151,7 @@
   }
   
   .btn-outline-success {
-    @apply border border-success text-success hover:bg-success hover:text-success-foreground transition-smooth;
+    @apply border-2 border-success text-success bg-transparent hover:bg-success hover:text-success-foreground transition-smooth rounded-lg px-6 py-2.5 font-medium;
   }
 
   /* Form styling */

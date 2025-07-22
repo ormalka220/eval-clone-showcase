@@ -125,7 +125,7 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
-            <Button asChild className="btn-success">
+            <Button asChild className="btn-primary">
               <Link to="/application">Apply Online</Link>
             </Button>
             <Button variant="outline" className="btn-outline-success">Request Demo</Button>
@@ -155,7 +155,7 @@ const Header = () => {
               <a href="#" className="nav-link">Contact</a>
               <div className="pt-4 border-t border-border">
                 <div className="flex flex-col space-y-2">
-                  <Button asChild className="btn-success">
+                  <Button asChild className="btn-primary">
                     <Link to="/application">Apply Online</Link>
                   </Button>
                   <Button variant="outline" className="btn-outline-success">Request Demo</Button>
